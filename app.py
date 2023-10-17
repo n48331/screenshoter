@@ -81,7 +81,9 @@ def capture_div_screenshot(browser, url, div_id, output_file, target_width=2048,
     browser.get(f'file:///{url}')
 
     try:
-        div_element = browser.find_element(By.CSS_SELECTOR, f'#{div_id}')
+        body_element = browser.find_element(By.TAG_NAME, 'body')
+        # div_element = browser.find_element(By.CSS_SELECTOR, f'#{div_id}')
+        div_element = body_element.find_element(By.CSS_SELECTOR, 'div:first-child')
         div_screenshot = div_element.screenshot_as_png
         image = Image.open(io.BytesIO(div_screenshot))
         image = image.resize((target_width, target_height), Image.Resampling.LANCZOS)
