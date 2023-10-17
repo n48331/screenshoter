@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logs</title>
+</head>
+<body>
+    <h1>Logs</h1>
+    <div>
+        <ul>
+            {% for log_entry in log_entries %}
+                <li>{{ log_entry }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

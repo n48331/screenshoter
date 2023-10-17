@@ -10,5 +10,13 @@
         <input type="file" name="zip_file" accept=".zip">
         <input type="submit" value="Upload and Process ZIP">
     </form>
+    <h3>Logs</h3>
+    <div id="log-entries">
+        <ul>
+            {% for log_entry in log_entries %}
+                <li>{{ log_entry }}</li>
+            {% endfor %}
+        </ul>
+    </div>
 </body>
 </html>

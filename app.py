@@ -10,10 +10,29 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 import shutil
 
-app = Flask(__name__)
+from io import StringIO
+import sys
 
+class PrintCapturingStream:
+    def __init__(self):
+        self.buffer = StringIO()
+
+    def write(self, text):
+        self.buffer.write(text)
+
+    def get_output(self):
+        return self.buffer.getvalue()
+
+    def flush(self):
+        pass
+
+
+app = Flask(__name__)
+print_capture_stream = PrintCapturingStream()
+sys.stdout = print_capture_stream
 @app.route('/', methods=['GET', 'POST'])
 def index():
+
     if request.method == 'POST':
         uploaded_file = request.files['zip_file']
         if uploaded_file and uploaded_file.filename.endswith(".zip"):
@@ -21,17 +40,22 @@ def index():
             uploaded_file.save(zip_filename)
             process_zip(zip_filename)
             return redirect(url_for('download', filename='screenshots.pdf'))
-    return render_template('upload.html')
+    log_entries = print_capture_stream.get_output().splitlines()
+
+    return render_template('upload.html',log_entries=log_entries)
 
 @app.route('/download/<filename>')
 def download(filename):
     return send_from_directory('', filename, as_attachment=True)
-
+@app.route('/logs')
+def view_logs():
+    log_entries = print_capture_stream.get_output().splitlines()
+    return render_template('logs.html', log_entries=log_entries)
 def process_zip(zip_file_path):
     
     current_file_path = os.path.dirname(os.path.abspath(__file__))
     root_directory = os.path.join(current_file_path, 'uploads')
-    div_id = 'mainWrapper'
+    div_id = 'wrapper'
     output_directory = os.path.join(current_file_path, 'screenshots')
 
     extract_zip_file(zip_file_path, root_directory)
