@@ -5,6 +5,7 @@ import zipfile
 from selenium import webdriver
 from PIL import Image
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.service import Service 
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
@@ -13,6 +14,7 @@ from reportlab.pdfgen import canvas
 import shutil
 from time import sleep
 from selenium.webdriver.support.ui import WebDriverWait
+from webdriver_manager.firefox import GeckoDriverManager
 progress_log_message = "Upload zip file"
 
 def generate_logs(data):
@@ -114,7 +116,7 @@ def capture_screenshots_in_directory(root_directory, output_directory):
     options = Options()
     # options.headless = True  
     options.add_argument("--headless")
-    browser = webdriver.Firefox(options=options)
+    browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()),options=options)
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
 
