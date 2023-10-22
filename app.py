@@ -5,7 +5,7 @@ import zipfile
 from selenium import webdriver
 from PIL import Image
 from selenium.webdriver.common.by import By
-from selenium.webdriver.common.service import Service 
+from selenium.webdriver.firefox.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.firefox.options import Options
@@ -114,9 +114,10 @@ def capture_screenshots_in_directory(root_directory, output_directory):
     global progress_log_message
     progress_log_message = 'Extracting images from HTML................'
     options = Options()
-    # options.headless = True  
+    options.headless = True  
     options.add_argument("--headless")
-    browser = webdriver.Firefox(service=Service(GeckoDriverManager().install()),options=options)
+    geckodriver_service = GeckoDriverManager()
+    browser = webdriver.Firefox(service=Service(geckodriver_service.install()),options=options)
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
 
