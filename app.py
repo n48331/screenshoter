@@ -112,7 +112,7 @@ def capture_screenshots_in_directory(root_directory, output_directory):
     global progress_log_message
     progress_log_message = 'Extracting images from HTML................'
     options = Options()
-    options.headless = True  
+    options.headless = False  
     browser = webdriver.Firefox(options=options)
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
