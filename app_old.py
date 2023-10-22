@@ -111,12 +111,9 @@ def capture_div_screenshot(browser, url, output_file, target_width=2048, target_
 def capture_screenshots_in_directory(root_directory, output_directory):
     global progress_log_message
     progress_log_message = 'Extracting images from HTML................'
-    # options.headless = True  
-    geckodriver_path = '/geckodriver/'
-    os.environ['PATH'] = f'{os.environ["PATH"]}:{geckodriver_path}'
     options = Options()
+    # options.headless = True  
     options.add_argument("--headless")
-    # browser = webdriver.Firefox(options=options)
     browser = webdriver.Firefox(options=options)
     if not os.path.exists(output_directory):
         os.makedirs(output_directory)
