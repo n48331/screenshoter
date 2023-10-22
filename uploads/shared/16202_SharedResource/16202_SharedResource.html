@@ -1,0 +1,23 @@
+<!DOCTYPE html><html><head>
+    <meta charset="utf-8">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./plugins/swiper_slider/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./plugins/bootstrap/bootstrap3.3.4.min.css">
+    <link rel="stylesheet" href="./plugins/bootstrap/animate.min.css">
+    <link rel="stylesheet" href="./plugins/carousel/css/reset.min.css">
+    <link rel="stylesheet" href="./plugins/carousel/css/carousel-style.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script>
+        document.addEventListener("touchmove",function(e){e.preventDefault()});
+    </script>
+</head>
+
+<body></body><script src="./plugins/jquery-1.10.2.min.js"></script> <script src="./plugins/jquery.swipe-events.js" charset="utf-8"></script> <script src="./plugins/jquery.touchSwipe.min.js"></script> <script src="./plugins/clm-library-1.4.js" charset="utf-8"></script> <script src="./plugins/adaptive/zepto.min.js"></script> <script src="./plugins/adaptive/underscore-min.js"></script> <script src="./plugins/adaptive/adaptive.js"></script> <script src="./plugins/swiper_slider/swiper-bundle.min.js"></script> <script src="./plugins/bootstrap/bootstrap3.4.1.min.js"></script> <script src="./plugins/carousel/js/prefixfree.min.js"></script> <script src="./plugins/carousel/js/carouselScript.js"></script> <script src="./plugins/customScript.js"></script> <script src="./js/custom.js"></script> <script src="./js/script.js"></script> <script type="text/javascript">
+        $(function() {
+            $('#wrapper').swipeEvents();  //Add main ID or CLASS
+            $("#menu01, #menu02, #menu03, #menu, #menuHover, #menuList, #menu04, #ref, #spc, #pi").bind("touchmove", function(e) {  //Add all the links to prevent the touchmove
+                e.preventDefault();
+            });
+        });   
+    </script></html>

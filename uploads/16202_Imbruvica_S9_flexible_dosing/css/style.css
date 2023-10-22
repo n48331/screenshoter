@@ -1,0 +1,286 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#wrapper {
+    display: block;
+    width: 1024px;
+    height: 768px;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: local;
+    background-size: contain;
+    background-image: url(../images/bg.jpg);
+    min-height: 75px;
+    position: absolute;
+}
+
+#prev {
+    display: block;
+    width: 48px;
+    height: 150px;
+    left: 0px;
+    top: 309px;
+    position: absolute;
+}
+
+#next {
+    display: block;
+    width: 48px;
+    height: 150px;
+    left: 976px;
+    top: 309px;
+    position: absolute;
+}
+
+#bottom-menu {
+    display: block;
+    width: 1024px;
+    height: 89px;
+    left: 0px;
+    top: 679px;
+    position: absolute;
+}
+
+#efficacy {
+    display: block;
+    width: 93px;
+    height: 87px;
+    top: 2px;
+    left: 99px;
+    position: absolute;
+}
+
+#home {
+    display: block;
+    width: 99px;
+    height: 87px;
+    top: 679px;
+    left: 0px;
+}
+
+#high-risk {
+    display: block;
+    width: 93px;
+    height: 87px;
+    top: 0px;
+    left: 192px;
+    position: absolute;
+}
+
+#real {
+    display: block;
+    width: 101px;
+    height: 87px;
+    top: 0px;
+    left: 285px;
+    position: absolute;
+}
+
+#life {
+    display: block;
+    width: 145px;
+    height: 87px;
+    top: 0px;
+    left: 397px;
+    position: absolute;
+}
+
+#time {
+    display: block;
+    width: 122px;
+    height: 87px;
+    top: 0px;
+    left: 542px;
+    position: absolute;
+}
+
+#safety {
+    display: block;
+    width: 75px;
+    height: 87px;
+    top: 0px;
+    left: 664px;
+    position: absolute;
+}
+
+#dosing {
+    display: block;
+    width: 79px;
+    height: 87px;
+    top: 0px;
+    left: 739px;
+    position: absolute;
+}
+
+#popupbtn1 {
+    display: block;
+    width: 56px;
+    height: 49px;
+    left: 291px;
+    top: 347px;
+    position: absolute;
+}
+
+#Popup1 {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
+    z-index: 9999;
+    background-repeat: repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.36) 100%);
+    display: none;
+}
+
+#im6f {
+    width: 1024px;
+    height: 768px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: contain;
+    background-image: url('../images/Slide_No_27.jpg');
+    display: block;
+}
+
+#i5vh {
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    left: 886px;
+    top: 106px;
+    position: absolute;
+}
+
+#iz35q {
+    display: block;
+    width: 56px;
+    height: 49px;
+    left: 680px;
+    top: 347px;
+    position: absolute;
+}
+
+#itko3 {
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    left: 890px;
+    top: 106px;
+    position: absolute;
+}
+
+#i5zd2 {
+    display: block;
+    width: 1024px;
+    height: 768px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: contain;
+    background-image: url('../images/Slide_No_28.jpg');
+}
+
+#Popup2 {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
+    z-index: 9999;
+    background-repeat: repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.36) 100%);
+    display: none;
+}
+
+#ifbd3 {
+    display: block;
+    width: 50px;
+    height: 147px;
+    left: 974px;
+    top: 310px;
+    position: absolute;
+}
+
+#examplePopup {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-repeat: repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: auto;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.36) 0%, rgba(0, 0, 0, 0.36) 100%);
+    display: none;
+}
+
+#ih3ow {
+    display: block;
+    width: 1024px;
+    height: 768px;
+    background-repeat: no-repeat;
+    background-position: left top;
+    background-attachment: scroll;
+    background-size: contain;
+    background-image: url('../images/Slide_No_29.jpg');
+}
+
+#ido0w {
+    display: block;
+    width: 50px;
+    height: 50px;
+    float: right;
+    left: 889px;
+    top: 105px;
+    position: absolute;
+}
+
+#ijqtf {
+    display: block;
+    width: 50px;
+    height: 153px;
+    float: right;
+    left: 0px;
+    top: 306px;
+    position: absolute;
+}
+
+#ref {
+    display: block;
+    width: 30px;
+    height: 30px;
+    left: 904px;
+    top: 53px;
+    position: absolute;
+}
+
+#pi {
+    display: block;
+    width: 30px;
+    height: 30px;
+    left: 934px;
+    top: 53px;
+    position: absolute;
+}
