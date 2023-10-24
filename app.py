@@ -79,16 +79,19 @@ def extract_zip_file(zip_file_path, extraction_directory):
         zip_ref.extractall(extraction_directory)
     progress_log_message ='Extraction Complete!!!'
 
+def process_image(div,target_width,target_height,output_file):
+    image = Image.open(io.BytesIO(div))
+    image = image.resize((target_width, target_height), Image.Resampling.LANCZOS)
+    image = image.convert("RGB")
+    image.save(output_file, "JPEG")
+
 def capture_div_screenshot(browser, url, output_file, target_width=2048, target_height=1536):
     try:
         browser.get(f'file:///{url}')
         body_element = browser.find_element(By.TAG_NAME, 'body')
         div_element = body_element.find_element(By.CSS_SELECTOR, 'div:first-child')
         div_screenshot = div_element.screenshot_as_png
-        image = Image.open(io.BytesIO(div_screenshot))
-        image = image.resize((target_width, target_height), Image.Resampling.LANCZOS)
-        image = image.convert("RGB")
-        image.save(output_file, "JPEG")
+        process_image(div_screenshot,target_width,target_height,output_file)
         popup_trigger_elements = div_element.find_elements(By.CSS_SELECTOR, '[data-role="popup-trigger"]')
         
         for index, popup_trigger_element in enumerate(popup_trigger_elements):
@@ -99,15 +102,13 @@ def capture_div_screenshot(browser, url, output_file, target_width=2048, target_
             popup_screenshot = div_element.screenshot_as_png
             global progress_log_message
             progress_log_message =f"Took SS of {index+1}"
-            image = Image.open(io.BytesIO(popup_screenshot))
-            image = image.resize((target_width, target_height), Image.Resampling.LANCZOS)
-            image = image.convert("RGB")
             output_ss = f"{output_file.split('.')[0]}_popup{index+1}.jpg"
-            image.save(output_ss, "JPEG")
+            process_image(popup_screenshot,target_width,target_height,output_ss)
             close_element = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, f'{popup_id} [data-role="popup-close"]')))
             close_element.click()
     except Exception as e:
         progress_log_message = f"An error occurred: {e}"
+
 
 
 def capture_screenshots_in_directory(root_directory, output_directory):
